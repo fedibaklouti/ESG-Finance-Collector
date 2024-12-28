@@ -2,6 +2,7 @@ import readline from "node:readline";
 import exportFinancialData from "./src/extractFinancialData";
 import { exportESG } from "./src/extractESGScores";
 import getSP500Tickers from "./src/extractSNPTickers";
+import { mkdir } from "node:fs";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -9,9 +10,20 @@ const rl = readline.createInterface({
 });
 
 async function main() {
+  mkdir("output", (err) => {
+    if (err && err.code !== "EEXIST") {
+      console.log("Error creating output directory");
+    }
+  });
+  mkdir("output_esg", (err) => {
+    if (err && err.code !== "EEXIST") {
+      console.log("Error creating output_esg directory");
+    }
+  });
+
   const askQuestion = () => {
     rl.question(
-      "What do you want to do? 1- Extract Financial Data, 2- Extract ESG, 3- Extract S&P 500 Companies Tickers, 4- Quit\n",
+      "ESG Finance Collector by Fedi Baklouti\nWhat do you want to do?\n 1- Extract Financial Data\n 2- Extract ESG\n 3- Extract S&P 500 Companies Tickers\n 4- Quit\n",
       async (answer) => {
         if (answer === "1") {
           await exportFinancialData();
