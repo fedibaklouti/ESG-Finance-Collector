@@ -1,6 +1,7 @@
 .env
 output
 output_esg
+output_esg_v2
 
 # Logs
 logs
