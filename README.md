@@ -38,10 +38,10 @@ This tool was developed as part of my master's project. It is designed to simpli
    npm run start
    ```
 4. Select an option from the menu:
-   - `1` to Extract Financial Data from Discounting Cashflows
+   - `1` to Extract Financial Data from Discounting Cashflows (Requires API Key for full data)
    - `2` to Extract ESG Data from Yahoo Finance
    - `3` to Extract S&P 500 Companies Tickers
-   - `4` to Extract ESG Data from FMP
+   - `4` to Extract ESG Data from FMP (Requires API Key for full data)
    - `5` to Quit
 5. You'll find that the data is extracted in either output/output_esg/output_esg_v2 folder depending on your choice
 
